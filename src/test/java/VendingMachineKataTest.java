@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class VendingMachineKataTest {
     private VendingMachineKata subject;
@@ -51,5 +51,24 @@ public class VendingMachineKataTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void getDisplayText_ShouldDisplayDimeValue_WhenDimeInserted() {
+        String expected = "$0.10";
+
+        subject.insertCoin("DIME");
+        String actual = subject.getDisplayText();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getDisplayText_ShouldDisplayQuarterValue_WhenQuarterInserted() {
+        String expected = "$0.25";
+
+        subject.insertCoin("QUARTER");
+        String actual = subject.getDisplayText();
+
+        assertEquals(expected, actual);
+    }
 
 }

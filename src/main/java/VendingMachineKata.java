@@ -1,14 +1,15 @@
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class VendingMachineKata {
-    private Double currentValue = Double.valueOf(0);
+    private Double currentValue = 0D;
 
     private final static Map<String, Double> coins = new HashMap<>();
     static {
         coins.put("NICKEL", .05);
+        coins.put("DIME", .10);
+        coins.put("QUARTER", .25);
     }
 
     public String getDisplayText() {
