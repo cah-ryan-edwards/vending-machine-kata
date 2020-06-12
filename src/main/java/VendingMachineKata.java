@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -5,7 +6,7 @@ import static java.util.Map.entry;
 
 public class VendingMachineKata {
     private String display = "INSERT COIN";
-    private static int currentValue;
+    private Double currentValue = Double.valueOf(0);
 
     private final static Map<String, Double> coins = new HashMap<>();
     static {
@@ -20,7 +21,8 @@ public class VendingMachineKata {
         Double value = coins.get(coin);
 
         if (value != null) {
-            display = value.toString();
+            currentValue += value;
+            display = NumberFormat.getCurrencyInstance().format(currentValue);
         }
     }
 }

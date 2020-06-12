@@ -22,7 +22,7 @@ public class VendingMachineKataTest {
 
     @Test
     public void getDisplayText_ShouldDisplayCoinValue_WhenSingleCoinInserted() {
-        String expected = "0.05";
+        String expected = "$0.05";
 
         subject.insertCoin("NICKEL");
         String actual = subject.getDisplayText();
@@ -39,4 +39,17 @@ public class VendingMachineKataTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void getDisplayText_ShouldDisplaySumsOfMultipleCoins() {
+        String expected = "$0.10";
+
+        subject.insertCoin("NICKEL");
+        subject.insertCoin("NICKEL");
+        String actual = subject.getDisplayText();
+
+        assertEquals(expected, actual);
+    }
+
+
 }
